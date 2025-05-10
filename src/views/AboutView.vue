@@ -9,10 +9,9 @@
       </template>
       
       <div class="content">
-        <h2>前端组件库演示平台</h2>
+        <h2>前端demo演示平台</h2>
         <p class="description">
-          这是一个前端组件库演示平台，用于展示各种前端库的使用方法和效果。
-          通过这个平台，你可以快速了解和学习各种前端库的使用，帮助你更高效地开发前端应用。
+          这是一个前端demo演示平台，用于展示各种前端库的使用方法和效果。（本人个人项目，仅供学习交流）
         </p>
         
         <h3>特色功能</h3>
@@ -34,25 +33,6 @@
             <span>便捷的导航和使用体验</span>
           </li>
         </ul>
-        
-        <h3>已集成的库</h3>
-        <el-descriptions :column="1" border>
-          <el-descriptions-item label="Element Plus">
-            <el-link href="https://element-plus.org" target="_blank" type="primary">
-              Element Plus是一套基于Vue 3的组件库，提供了丰富的基础组件和业务组件
-            </el-link>
-          </el-descriptions-item>
-          <el-descriptions-item label="Vue Flow">
-            <el-link href="https://vueflow.dev" target="_blank" type="success">
-              Vue Flow是一个用于构建交互式流程图的库，支持拖拽、连接等丰富功能
-            </el-link>
-          </el-descriptions-item>
-        </el-descriptions>
-        
-        <div class="footer">
-          <p>版本: v1.0.0</p>
-          <p>© 2023 Demo库平台. 保留所有权利.</p>
-        </div>
       </div>
     </el-card>
   </div>
