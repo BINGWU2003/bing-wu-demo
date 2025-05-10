@@ -4,6 +4,7 @@ import { VueFlow, useVueFlow, Panel, Handle, Position } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
 import { Controls } from '@vue-flow/controls'
 import { MiniMap } from '@vue-flow/minimap'
+import DemoContainer from '@/components/layout/DemoContainer.vue'
 import '@vue-flow/core/dist/style.css'
 import '@vue-flow/core/dist/theme-default.css'
 import '@vue-flow/controls/dist/style.css'
@@ -178,40 +179,40 @@ const handleConnect = (params) => {
 </script>
 
 <template>
-  <div class="demo-container">
-    <el-card class="demo-card">
-      <template #header>
-        <div class="card-header">
-          <span>Vue Flow 自定义节点</span>
-          <el-tag type="primary">高级流程图</el-tag>
-        </div>
-      </template>
-
-      <div class="flow-container">
-        <VueFlow 
-          @connect="handleConnect"
-          class="flow-viewport"
-          :default-zoom="1"
-          :min-zoom="0.2"
-          :max-zoom="4"
-          :node-types="nodeTypes"
-        >
-          <Background pattern-color="#aaa" gap="8" />
-          <MiniMap />
-          <Controls />
-          <Panel position="top-right">
-            <div class="panel-content">
-              <h4>项目流程图</h4>
-              <p>这是一个使用自定义节点的项目流程示例</p>
-              <div class="panel-btns">
-                <el-button size="small" type="primary">导出流程</el-button>
-                <el-button size="small" type="success">保存</el-button>
-              </div>
+  <DemoContainer 
+    title="Vue Flow 自定义节点"
+    tag-type="primary"
+    tag-text="高级流程图"
+    alert-title="Vue Flow 自定义节点演示"
+    alert-type="primary"
+    alert-description="这是Vue Flow自定义节点示例，展示了如何创建和使用自定义节点来构建更复杂的流程图。"
+  >
+    <div class="flow-container">
+      <VueFlow 
+        @connect="handleConnect"
+        class="flow-viewport"
+        :default-zoom="1"
+        :min-zoom="0.2"
+        :max-zoom="4"
+        :node-types="nodeTypes"
+      >
+        <Background pattern-color="#aaa" gap="8" />
+        <MiniMap />
+        <Controls />
+        <Panel position="top-right">
+          <div class="panel-content">
+            <h4>项目流程图</h4>
+            <p>这是一个使用自定义节点的项目流程示例</p>
+            <div class="panel-btns">
+              <el-button size="small" type="primary">导出流程</el-button>
+              <el-button size="small" type="success">保存</el-button>
             </div>
-          </Panel>
-        </VueFlow>
-      </div>
-      
+          </div>
+        </Panel>
+      </VueFlow>
+    </div>
+    
+    <template #info>
       <div class="flow-info">
         <p><strong>节点说明：</strong></p>
         <el-descriptions :column="2" border>
@@ -219,16 +220,8 @@ const handleConnect = (params) => {
           <el-descriptions-item label="条件节点">决策点，有"是"和"否"两个出口</el-descriptions-item>
         </el-descriptions>
       </div>
-    </el-card>
-    
-    <el-alert
-      title="Vue Flow 自定义节点演示"
-      type="primary"
-      description="这是Vue Flow自定义节点示例，展示了如何创建和使用自定义节点来构建更复杂的流程图。"
-      show-icon
-      :closable="false"
-    />
-  </div>
+    </template>
+  </DemoContainer>
 </template>
 
 <style>
@@ -307,23 +300,8 @@ const handleConnect = (params) => {
 </style>
 
 <style scoped>
-.demo-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.demo-card {
-  margin-bottom: 20px;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .flow-container {
-  height: 600px;
+  height: 500px;
   border: 1px solid #dcdfe6;
   border-radius: 4px;
   margin-bottom: 20px;
@@ -335,8 +313,6 @@ const handleConnect = (params) => {
 
 .flow-info {
   margin-top: 10px;
-  color: #606266;
-  font-size: 14px;
 }
 
 .panel-content {

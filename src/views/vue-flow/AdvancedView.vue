@@ -5,6 +5,7 @@ import { NodeToolbar } from '@vue-flow/node-toolbar'
 import { Background } from '@vue-flow/background'
 import { Controls } from '@vue-flow/controls'
 import { MiniMap } from '@vue-flow/minimap'
+import DemoContainer from '@/components/layout/DemoContainer.vue'
 import '@vue-flow/core/dist/style.css'
 import '@vue-flow/core/dist/theme-default.css'
 import '@vue-flow/controls/dist/style.css'
@@ -142,84 +143,75 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="demo-container">
-    <el-card class="demo-card">
-      <template #header>
-        <div class="card-header">
-          <span>Vue Flow 高级功能</span>
-          <el-tag type="danger">高级演示</el-tag>
-        </div>
-      </template>
-
-      <div class="toolbar">
-        <el-button-group>
-          <el-button :type="layoutType === 'default' ? 'primary' : ''" @click="applyLayout('default')">默认布局</el-button>
-          <el-button :type="layoutType === 'horizontal' ? 'primary' : ''" @click="applyLayout('horizontal')">水平布局</el-button>
-          <el-button :type="layoutType === 'vertical' ? 'primary' : ''" @click="applyLayout('vertical')">垂直布局</el-button>
-        </el-button-group>
-        
-        <div>
-          <el-button type="success" @click="addNewNode">添加节点</el-button>
-          <el-button type="warning" @click="exportAsImage">导出图片</el-button>
-          <el-switch
-            v-model="isDarkMode"
-            active-text="暗色主题"
-            inactive-text="亮色主题"
-            @change="toggleTheme"
-          />
-        </div>
-      </div>
-
-      <div class="flow-container" :style="graphStyles">
-        <VueFlow 
-          @node-click="onNodeClick"
-          @connect="onConnect"
-          @nodes-change="onNodesChange"
-          @edges-change="onEdgesChange"
-          class="flow-viewport"
-          :default-zoom="1.5"
-          :min-zoom="0.2"
-          :max-zoom="4"
-          fit-view-on-init
-        >
-          <Background :pattern-color="isDarkMode ? '#444' : '#aaa'" gap="8" />
-          <MiniMap />
-          <Controls />
-          <NodeToolbar v-if="isToolbarVisible && selectedNode">
-            <div class="node-toolbar">
-              <el-button size="small" type="danger">删除</el-button>
-              <el-button size="small" type="primary">编辑</el-button>
-              <el-button size="small">复制</el-button>
-            </div>
-          </NodeToolbar>
-          <Panel position="top-right">
-            <div class="panel-content">
-              <h4>高级流程图</h4>
-              <p>演示各种布局和主题</p>
-              <el-checkbox v-model="isToolbarVisible">显示工具栏</el-checkbox>
-            </div>
-          </Panel>
-        </VueFlow>
-      </div>
+  <DemoContainer 
+    title="Vue Flow 高级功能"
+    tag-type="danger"
+    tag-text="高级演示"
+    alert-title="特性演示"
+    alert-type="info"
+    alert-description="本示例演示了Vue Flow的高级特性，包括自动布局、主题切换、节点工具栏、动态添加节点和导出图片功能。"
+  >
+    <div class="toolbar">
+      <el-button-group>
+        <el-button :type="layoutType === 'default' ? 'primary' : ''" @click="applyLayout('default')">默认布局</el-button>
+        <el-button :type="layoutType === 'horizontal' ? 'primary' : ''" @click="applyLayout('horizontal')">水平布局</el-button>
+        <el-button :type="layoutType === 'vertical' ? 'primary' : ''" @click="applyLayout('vertical')">垂直布局</el-button>
+      </el-button-group>
       
-      <el-alert
-        title="特性演示"
-        type="info"
-        style="margin-top: 20px"
+      <div>
+        <el-button type="success" @click="addNewNode">添加节点</el-button>
+        <el-button type="warning" @click="exportAsImage">导出图片</el-button>
+        <el-switch
+          v-model="isDarkMode"
+          active-text="暗色主题"
+          inactive-text="亮色主题"
+          @change="toggleTheme"
+        />
+      </div>
+    </div>
+
+    <div class="flow-container" :style="graphStyles">
+      <VueFlow 
+        @node-click="onNodeClick"
+        @connect="onConnect"
+        @nodes-change="onNodesChange"
+        @edges-change="onEdgesChange"
+        class="flow-viewport"
+        :default-zoom="1.5"
+        :min-zoom="0.2"
+        :max-zoom="4"
+        fit-view-on-init
       >
-        <template #default>
-          <p>本示例演示了Vue Flow的以下高级特性：</p>
-          <ol>
-            <li>自动布局 - 切换不同布局模式</li>
-            <li>主题切换 - 亮色和暗色主题</li>
-            <li>节点工具栏 - 点击节点时显示</li>
-            <li>动态添加节点</li>
-            <li>导出图片功能</li>
-          </ol>
-        </template>
-      </el-alert>
-    </el-card>
-  </div>
+        <Background :pattern-color="isDarkMode ? '#444' : '#aaa'" gap="8" />
+        <MiniMap />
+        <Controls />
+        <NodeToolbar v-if="isToolbarVisible && selectedNode">
+          <div class="node-toolbar">
+            <el-button size="small" type="danger">删除</el-button>
+            <el-button size="small" type="primary">编辑</el-button>
+            <el-button size="small">复制</el-button>
+          </div>
+        </NodeToolbar>
+        <Panel position="top-right">
+          <div class="panel-content">
+            <h4>高级流程图</h4>
+            <p>演示各种布局和主题</p>
+            <el-checkbox v-model="isToolbarVisible">显示工具栏</el-checkbox>
+          </div>
+        </Panel>
+      </VueFlow>
+    </div>
+    
+    <template #info>
+      <ol>
+        <li>自动布局 - 切换不同布局模式</li>
+        <li>主题切换 - 亮色和暗色主题</li>
+        <li>节点工具栏 - 点击节点时显示</li>
+        <li>动态添加节点</li>
+        <li>导出图片功能</li>
+      </ol>
+    </template>
+  </DemoContainer>
 </template>
 
 <style>
@@ -283,21 +275,6 @@ onMounted(() => {
 </style>
 
 <style scoped>
-.demo-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.demo-card {
-  margin-bottom: 20px;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .toolbar {
   margin-bottom: 15px;
   padding: 10px 0;

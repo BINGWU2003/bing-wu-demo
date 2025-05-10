@@ -40,6 +40,8 @@ const getMenuIcon = (parentName) => {
   const iconMap = {
     'Element Plus': ElementPlus,
     'Vue Flow': Share,
+    'bingwu-request-manager': Share,
+    '请求管理': Share,
     '其他': Help
   }
   return iconMap[parentName] || Help
@@ -67,16 +69,8 @@ const getMenuIcon = (parentName) => {
         >
           <!-- 自动生成菜单 -->
           <template v-for="(routes, parentName) in menuItems" :key="parentName">
-            <!-- 如果分组只有一个菜单项，直接显示为菜单项 -->
-            <template v-if="routes.length === 1">
-              <el-menu-item :index="routes[0].path">
-                <el-icon><component :is="getMenuIcon(parentName)" /></el-icon>
-                <span>{{ routes[0].meta.title }}</span>
-              </el-menu-item>
-            </template>
-            
-            <!-- 如果分组有多个菜单项，显示为子菜单 -->
-            <el-sub-menu v-else :index="parentName">
+            <!-- 始终展示为子菜单，无论子节点数量 -->
+            <el-sub-menu :index="parentName">
               <template #title>
                 <el-icon><component :is="getMenuIcon(parentName)" /></el-icon>
                 <span>{{ parentName }}</span>

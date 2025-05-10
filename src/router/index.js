@@ -10,6 +10,9 @@ const VueFlowBasic = () => import('../views/vue-flow/BasicView.vue')
 const VueFlowCustom = () => import('../views/vue-flow/CustomView.vue')
 const VueFlowAdvanced = () => import('../views/vue-flow/AdvancedView.vue')
 
+// 请求管理
+const BasicView = () => import('../views/bingwu-request-manager/BasicView.vue')
+
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -68,6 +71,16 @@ const router = createRouter({
       meta: {
         title: '高级示例',
         parent: 'Vue Flow'
+      }
+    },
+    // 请求管理
+    {
+      path: '/bingwu-request-manager/basic',
+      name: 'bingwu-request-manager-basic',
+      component: BasicView,
+      meta: {
+        title: '基本示例',
+        parent: '请求管理'
       }
     },
     // 关于页

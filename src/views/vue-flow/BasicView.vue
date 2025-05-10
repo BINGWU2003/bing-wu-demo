@@ -4,6 +4,7 @@ import { VueFlow, useVueFlow, Panel } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
 import { Controls } from '@vue-flow/controls'
 import { MiniMap } from '@vue-flow/minimap'
+import DemoContainer from '@/components/layout/DemoContainer.vue'
 import '@vue-flow/core/dist/style.css'
 import '@vue-flow/core/dist/theme-default.css'
 import '@vue-flow/controls/dist/style.css'
@@ -41,51 +42,42 @@ const handleConnect = (params) => {
 </script>
 
 <template>
-  <div class="demo-container">
-    <el-card class="demo-card">
-      <template #header>
-        <div class="card-header">
-          <span>Vue Flow 基础流程图</span>
-          <el-tag type="success">流程图演示</el-tag>
-        </div>
-      </template>
-
-      <div class="flow-container">
-        <VueFlow 
-          @connect="handleConnect"
-          class="flow-viewport"
-          :default-zoom="1"
-          :min-zoom="0.2"
-          :max-zoom="4"
-        >
-          <Background pattern-color="#aaa" gap="8" />
-          <MiniMap />
-          <Controls />
-          <Panel position="top-right">
-            <div class="panel-content">
-              <h4>流程图操作</h4>
-              <div class="panel-btns">
-                <el-button size="small" type="primary">保存</el-button>
-                <el-button size="small" type="danger">重置</el-button>
-              </div>
+  <DemoContainer 
+    title="Vue Flow 基础流程图"
+    tag-type="success"
+    tag-text="流程图演示"
+    alert-title="Vue Flow 基础演示"
+    alert-description="这是Vue Flow基础流程图示例，演示了如何创建简单的流程图及其基本操作。尝试拖动节点和使用控制面板功能。"
+  >
+    <div class="flow-container">
+      <VueFlow 
+        @connect="handleConnect"
+        class="flow-viewport"
+        :default-zoom="1"
+        :min-zoom="0.2"
+        :max-zoom="4"
+      >
+        <Background pattern-color="#aaa" gap="8" />
+        <MiniMap />
+        <Controls />
+        <Panel position="top-right">
+          <div class="panel-content">
+            <h4>流程图操作</h4>
+            <div class="panel-btns">
+              <el-button size="small" type="primary">保存</el-button>
+              <el-button size="small" type="danger">重置</el-button>
             </div>
-          </Panel>
-        </VueFlow>
-      </div>
-      
+          </div>
+        </Panel>
+      </VueFlow>
+    </div>
+    
+    <template #info>
       <div class="flow-info">
         <p>提示：可以拖动节点、缩放画布、连接节点、添加/删除边等。</p>
       </div>
-    </el-card>
-    
-    <el-alert
-      title="Vue Flow 基础演示"
-      type="success"
-      description="这是Vue Flow基础流程图示例，演示了如何创建简单的流程图及其基本操作。尝试拖动节点和使用控制面板功能。"
-      show-icon
-      :closable="false"
-    />
-  </div>
+    </template>
+  </DemoContainer>
 </template>
 
 <style>
@@ -132,21 +124,6 @@ const handleConnect = (params) => {
 </style>
 
 <style scoped>
-.demo-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.demo-card {
-  margin-bottom: 20px;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .flow-container {
   height: 500px;
   border: 1px solid #dcdfe6;
