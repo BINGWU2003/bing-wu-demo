@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 
 // Element Plus demos
 const ElementBasic = () => import('../views/element-plus/BasicView.vue')
@@ -11,7 +11,7 @@ const VueFlowCustom = () => import('../views/vue-flow/CustomView.vue')
 const VueFlowAdvanced = () => import('../views/vue-flow/AdvancedView.vue')
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     // 首页 - Element Plus基础组件
     {

@@ -1,6 +1,6 @@
 <script setup>
-import { RouterView } from 'vue-router'
-import { ref } from 'vue'
+import { RouterView, useRouter } from 'vue-router'
+import { ref, computed } from 'vue'
 import { 
   Document, 
   Menu as IconMenu, 
@@ -13,7 +13,37 @@ import {
 } from '@element-plus/icons-vue'
 import { ArrowLeft, ArrowRight } from '@element-plus/icons-vue'
 
+const router = useRouter()
 const isCollapse = ref(false)
+
+// 根据路由生成菜单结构
+const menuItems = computed(() => {
+  const routes = router.getRoutes()
+  const groupedRoutes = {}
+  
+  // 按照parent分组
+  routes.forEach(route => {
+    if (route.meta && route.meta.title) {
+      const parent = route.meta.parent || '其他'
+      if (!groupedRoutes[parent]) {
+        groupedRoutes[parent] = []
+      }
+      groupedRoutes[parent].push(route)
+    }
+  })
+  
+  return groupedRoutes
+})
+
+// 获取菜单图标
+const getMenuIcon = (parentName) => {
+  const iconMap = {
+    'Element Plus': ElementPlus,
+    'Vue Flow': Share,
+    '其他': Help
+  }
+  return iconMap[parentName] || Help
+}
 </script>
 
 <template>
@@ -35,30 +65,27 @@ const isCollapse = ref(false)
           text-color="#fff"
           active-text-color="#409EFF"
         >
-          <el-sub-menu index="/element-plus">
-            <template #title>
-              <el-icon><ElementPlus /></el-icon>
-              <span>Element Plus</span>
+          <!-- 自动生成菜单 -->
+          <template v-for="(routes, parentName) in menuItems" :key="parentName">
+            <!-- 如果分组只有一个菜单项，直接显示为菜单项 -->
+            <template v-if="routes.length === 1">
+              <el-menu-item :index="routes[0].path">
+                <el-icon><component :is="getMenuIcon(parentName)" /></el-icon>
+                <span>{{ routes[0].meta.title }}</span>
+              </el-menu-item>
             </template>
-            <el-menu-item index="/">基础组件</el-menu-item>
-            <el-menu-item index="/element-plus/form">表单组件</el-menu-item>
-            <el-menu-item index="/element-plus/data">数据展示</el-menu-item>
-          </el-sub-menu>
-          
-          <el-sub-menu index="/vue-flow">
-            <template #title>
-              <el-icon><Share /></el-icon>
-              <span>Vue Flow</span>
-            </template>
-            <el-menu-item index="/vue-flow/basic">基础流程图</el-menu-item>
-            <el-menu-item index="/vue-flow/custom">自定义节点</el-menu-item>
-            <el-menu-item index="/vue-flow/advanced">高级示例</el-menu-item>
-          </el-sub-menu>
-          
-          <el-menu-item index="/about">
-            <el-icon><Help /></el-icon>
-            <span>关于</span>
-          </el-menu-item>
+            
+            <!-- 如果分组有多个菜单项，显示为子菜单 -->
+            <el-sub-menu v-else :index="parentName">
+              <template #title>
+                <el-icon><component :is="getMenuIcon(parentName)" /></el-icon>
+                <span>{{ parentName }}</span>
+              </template>
+              <el-menu-item v-for="route in routes" :key="route.path" :index="route.path">
+                {{ route.meta.title }}
+              </el-menu-item>
+            </el-sub-menu>
+          </template>
         </el-menu>
         
         <div class="collapse-btn" @click="isCollapse = !isCollapse">
