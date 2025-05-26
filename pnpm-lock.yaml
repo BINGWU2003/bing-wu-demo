@@ -32,6 +32,9 @@ importers:
       element-plus:
         specifier: ^2.9.10
         version: 2.9.10(vue@3.5.13(typescript@5.8.3))
+      iip-ui-vue3:
+        specifier: ^1.0.4
+        version: 1.0.4(element-plus@2.9.10(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3))
       pinia:
         specifier: ^3.0.1
         version: 3.0.2(typescript@5.8.3)(vue@3.5.13(typescript@5.8.3))
@@ -1251,6 +1254,12 @@ packages:
   human-signals@8.0.1:
     resolution: {integrity: sha512-eKCa6bwnJhvxj14kZk5NCPc6Hb6BdsU9DZcOnmQKSnO1VKrfV0zCvtttPZUsBvjmNDn8rpcJfpwSYnHBjc95MQ==}
     engines: {node: '>=18.18.0'}
+
+  iip-ui-vue3@1.0.4:
+    resolution: {integrity: sha512-yHcinDLd0naCQLp7BAzqwtEWXHuZLgMiTsIDNuAQOuf8FmsPQgeVRCTXn6Gg9eKmWlxtFTYEQKvSc+IG7U2XJA==}
+    peerDependencies:
+      element-plus: ^2.0.0
+      vue: ^3.0.0
 
   immutable@5.1.2:
     resolution: {integrity: sha512-qHKXW1q6liAk1Oys6umoaZbDRqjcjgSrbnrifHsfsttza7zcvRAsL7mMV6xWcyhwQy7Xj5v4hhbr6b+iDYwlmQ==}
@@ -3562,6 +3571,11 @@ snapshots:
   human-signals@2.1.0: {}
 
   human-signals@8.0.1: {}
+
+  iip-ui-vue3@1.0.4(element-plus@2.9.10(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3)):
+    dependencies:
+      element-plus: 2.9.10(vue@3.5.13(typescript@5.8.3))
+      vue: 3.5.13(typescript@5.8.3)
 
   immutable@5.1.2: {}
 

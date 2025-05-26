@@ -13,6 +13,9 @@ const VueFlowAdvanced = () => import('../views/vue-flow/AdvancedView.vue')
 // 请求管理
 const BasicView = () => import('../views/bingwu-request-manager/BasicView.vue')
 
+// IIP-UI Vue3
+const IipUiBasicView = () => import('../views/iip-ui-vue3/BasicView.vue')
+
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -81,6 +84,15 @@ const router = createRouter({
       meta: {
         title: '基本示例',
         parent: '请求管理'
+      }
+    },
+    {
+      path: '/iip-ui-vue3/basic',
+      name: 'iip-ui-vue3-basic',
+      component: IipUiBasicView,
+      meta: {
+        title: '基本示例',
+        parent: 'IIP-UI Vue3'
       }
     },
     // 关于页
