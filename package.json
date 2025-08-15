@@ -10,8 +10,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@bingwu/iip-ui-components": "^1.1.2",
-    "@bingwu/iip-ui-theme": "^1.0.0",
+    "@bingwu/iip-ui-components": "^1.2.0",
+    "@bingwu/iip-ui-theme": "^1.2.0",
+    "@bingwu/iip-ui-utils": "^1.2.2",
     "@element-plus/icons-vue": "^2.3.1",
     "@vue-flow/background": "^1.3.2",
     "@vue-flow/controls": "^1.1.2",
@@ -24,7 +25,8 @@
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
     "vxe-table": "^4.15.6",
-    "xe-utils": "^3.7.8"
+    "xe-utils": "^3.7.8",
+    "vxe-pc-ui": "^4.2.19"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",

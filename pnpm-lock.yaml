@@ -9,11 +9,14 @@ importers:
   .:
     dependencies:
       '@bingwu/iip-ui-components':
-        specifier: ^1.1.2
-        version: 1.1.2(@element-plus/icons-vue@2.3.1(vue@3.5.13(typescript@5.8.3)))(element-plus@2.9.10(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3))
+        specifier: ^1.2.0
+        version: 1.2.0(@element-plus/icons-vue@2.3.1(vue@3.5.13(typescript@5.8.3)))(element-plus@2.9.10(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3))
       '@bingwu/iip-ui-theme':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.2.0
+        version: 1.2.0
+      '@bingwu/iip-ui-utils':
+        specifier: ^1.2.2
+        version: 1.2.2(vue@3.5.13(typescript@5.8.3))
       '@element-plus/icons-vue':
         specifier: ^2.3.1
         version: 2.3.1(vue@3.5.13(typescript@5.8.3))
@@ -47,6 +50,9 @@ importers:
       vue-router:
         specifier: ^4.5.0
         version: 4.5.1(vue@3.5.13(typescript@5.8.3))
+      vxe-pc-ui:
+        specifier: ^4.2.19
+        version: 4.8.13(vue@3.5.13(typescript@5.8.3))
       vxe-table:
         specifier: ^4.15.6
         version: 4.15.6(vue@3.5.13(typescript@5.8.3))
@@ -321,18 +327,18 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@bingwu/iip-ui-components@1.1.2':
-    resolution: {integrity: sha512-h51zQEA7+VPCgE2MnCBnzozkeevlRwA35axK/vHRbcpB/cMSkf1wNUXBU1ijQuJBxGBfY2CuvPfvZMeiWmf+2w==}
+  '@bingwu/iip-ui-components@1.2.0':
+    resolution: {integrity: sha512-r6qO+QEjJhBWNmGbzXNI0Ud7dEVxuu4tJoG8S9QVCXS9/2Rck302TxZZuOLLInZzJ172QvT9xzCVwAIWJSoJIg==}
     peerDependencies:
       '@element-plus/icons-vue': ^2.1.0
       element-plus: ^2.4.4
       vue: ^3.3.0
 
-  '@bingwu/iip-ui-theme@1.0.0':
-    resolution: {integrity: sha512-Z23VLo9AoI+A6Pu1dyZvUcNsBnPupLohHgeMvoX1CJxLUpBVIeDmLcKnG4bsBT1QQJOFJVkQ66ITt7TtoiuB7g==}
+  '@bingwu/iip-ui-theme@1.2.0':
+    resolution: {integrity: sha512-NVeMyoB3FmzmtU2pFFegSSuzRhIVpdwLMNvnBoMYScEE9ZC/cJQH3zscXMzsrMf9dzWs7X4tnRt+P3VnGMxkcQ==}
 
-  '@bingwu/iip-ui-utils@1.0.0':
-    resolution: {integrity: sha512-ncBCxx/spquZM2cUJ1ydBKaMh1BDdtNpeD1A37jEq2biuq3qHzjBAO3Kxxp8YAHNgzJKuzW/a90Oj4VkQxrj7A==}
+  '@bingwu/iip-ui-utils@1.2.2':
+    resolution: {integrity: sha512-oeStvSlBZOOADz6aDOTsn9+Vnq84CHAioaiIagOQSZ1F87ubx30TFa4iHOBDwZqJASPoAMoFOkn8D2UiTq7Uwg==}
     peerDependencies:
       vue: ^3.3.0
 
@@ -2287,6 +2293,9 @@ packages:
   vxe-pc-ui@4.8.13:
     resolution: {integrity: sha512-1lAuni9nhpsPIUlT17TGAH6FR0Jws8/CqX4D1ksyfqNP5CV/X530B8mdPbKbRsAVKAYWVGliLXpXhBMWEay/wg==}
 
+  vxe-pc-ui@4.8.15:
+    resolution: {integrity: sha512-wLHBg2D6v2PIm0u2l/b1xBQCsU+IX+d/1Tx2ZrxTjjO8JAMR5DRFABrdhKX6GcOMKmUsu06l3Ct+OzsIpp/H3w==}
+
   vxe-table@4.15.6:
     resolution: {integrity: sha512-nukG6ZdjkRy2pVNqXH0FbtS5yPAxfhUuNG1/Q8dJ6+SnvDcUem5lxLrpF9cREhuNvxRQKda6MaCPutgVRpo6zw==}
 
@@ -2763,18 +2772,19 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@bingwu/iip-ui-components@1.1.2(@element-plus/icons-vue@2.3.1(vue@3.5.13(typescript@5.8.3)))(element-plus@2.9.10(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3))':
+  '@bingwu/iip-ui-components@1.2.0(@element-plus/icons-vue@2.3.1(vue@3.5.13(typescript@5.8.3)))(element-plus@2.9.10(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3))':
     dependencies:
-      '@bingwu/iip-ui-utils': 1.0.0(vue@3.5.13(typescript@5.8.3))
+      '@bingwu/iip-ui-utils': 1.2.2(vue@3.5.13(typescript@5.8.3))
       '@element-plus/icons-vue': 2.3.1(vue@3.5.13(typescript@5.8.3))
       element-plus: 2.9.10(vue@3.5.13(typescript@5.8.3))
       vue: 3.5.13(typescript@5.8.3)
+      vxe-pc-ui: 4.8.15(vue@3.5.13(typescript@5.8.3))
       vxe-table: 4.15.6(vue@3.5.13(typescript@5.8.3))
       xe-utils: 3.7.8
 
-  '@bingwu/iip-ui-theme@1.0.0': {}
+  '@bingwu/iip-ui-theme@1.2.0': {}
 
-  '@bingwu/iip-ui-utils@1.0.0(vue@3.5.13(typescript@5.8.3))':
+  '@bingwu/iip-ui-utils@1.2.2(vue@3.5.13(typescript@5.8.3))':
     dependencies:
       vue: 3.5.13(typescript@5.8.3)
 
@@ -4914,6 +4924,12 @@ snapshots:
       typescript: 5.8.3
 
   vxe-pc-ui@4.8.13(vue@3.5.13(typescript@5.8.3)):
+    dependencies:
+      '@vxe-ui/core': 4.2.9(vue@3.5.13(typescript@5.8.3))
+    transitivePeerDependencies:
+      - vue
+
+  vxe-pc-ui@4.8.15(vue@3.5.13(typescript@5.8.3)):
     dependencies:
       '@vxe-ui/core': 4.2.9(vue@3.5.13(typescript@5.8.3))
     transitivePeerDependencies:
