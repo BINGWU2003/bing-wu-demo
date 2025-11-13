@@ -1,12 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-// Element Plus demos
-const ElementBasic = () => import('../views/element-plus/BasicView.vue')
 const ElementForm = () => import('../views/element-plus/FormView.vue')
 const ElementData = () => import('../views/element-plus/DataView.vue')
 
 // 请求管理
 const BasicView = () => import('../views/bingwu-request-manager/BasicView.vue')
+const Demo1 = () => import('../views/demo/demo1.vue')
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -15,10 +14,10 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: ElementBasic,
+      component: Demo1,
       meta: {
-        title: '基础组件',
-        parent: 'Element Plus',
+        title: 'demo',
+        parent: 'demo',
       },
     },
     // Element Plus路由组
@@ -58,6 +57,15 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
       meta: {
         title: '关于',
+      },
+    },
+    {
+      path: '/demo/demo1',
+      name: 'demo1',
+      component: Demo1,
+      meta: {
+        title: 'demo1',
+        parent: 'demo',
       },
     },
   ],
