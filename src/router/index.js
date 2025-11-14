@@ -5,6 +5,7 @@ const ElementData = () => import('../views/element-plus/DataView.vue')
 
 // 请求管理
 const BasicView = () => import('../views/bingwu-request-manager/BasicView.vue')
+const VxeTableBasicView = () => import('../views/vxe-table/BasicView.vue')
 const Demo1 = () => import('../views/demo/demo1.vue')
 
 const router = createRouter({
@@ -48,6 +49,15 @@ const router = createRouter({
       meta: {
         title: '基本示例',
         parent: '请求管理',
+      },
+    },
+    {
+      path: '/vxe-table/basic',
+      name: 'vxe-table-basic',
+      component: VxeTableBasicView,
+      meta: {
+        title: '表格示例',
+        parent: 'vxe-table',
       },
     },
     // 关于页
